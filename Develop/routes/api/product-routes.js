@@ -18,28 +18,26 @@ router.get('/', async (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  router.get('/:id', async (req, res) => {
-    try {
-      const productData = await Product.findAll({
-        where: {
-          id: req.params.id
-        },
-        include: [{
-          model: Product,
-        }]
-      });
-  
-      if (!productData) {
-        res.status(404).json({ message: 'No product found with this id!' });
-        return;
-      }
-  
-      res.status(200).json(productData);
-    } catch (err) {
-      res.status(500).json(err);
+router.get('/:id', async (req, res) => {
+  try {
+    const productData = await Product.findAll({
+      where: {
+        id: req.params.id
+      },
+      include: [{
+        model: Product,
+      }]
+    });
+
+    if (!productData) {
+      res.status(404).json({ message: 'No product found with this id!' });
+      return;
     }
-  });
+
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // create new product
