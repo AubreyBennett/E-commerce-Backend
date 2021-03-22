@@ -4,11 +4,17 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
+// "name": "SequelizeEagerLoadingError"
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
       include: [{
-        model: Product,
+        model: Category,
+        attributes: ["category_name"]
+      },
+      {
+        model: Tag,
+        attributes: ["tag_name"]
       }]
     });
     res.status(200).json(productData);
@@ -24,8 +30,14 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id
       },
+      attributes: ["id", "product_name", "price", "stock"],
       include: [{
-        model: Product,
+        model: Category,
+        attributes: ["category_name"]
+      },
+      {
+        model: Tag,
+        attributes: ["tag_name"]
       }]
     });
 

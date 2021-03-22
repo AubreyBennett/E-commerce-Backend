@@ -4,6 +4,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 // The `/api/tags` endpoint
 
 // GET all tags
+// works
 router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
@@ -18,6 +19,7 @@ router.get('/', async (req, res) => {
 });
 
   // find a single tag by its `id`
+  // works
 router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
@@ -41,6 +43,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // post a new tag
+// works for adding an id but name comes up as null
 router.post('/', async (req, res) => {
   try {
     const tagData = await Tag.create(req.body);
@@ -70,8 +73,9 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// delete on tag by its `id` value
+// works
 router.delete('/:id', async (req, res) => {
-  // delete on tag by its `id` value
   try {
     const tagData = await Tag.destroy({
       where: {
