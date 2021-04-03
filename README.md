@@ -38,7 +38,9 @@ Open terminal and use `npm i` to install all packages above. Install seeds using
 
 Link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met.
 
-INSERT LINK HERE
+https://drive.google.com/file/d/1lyYH-d_vGO0sC4DJ9GKNjr1o9NzNmwtH/view
+
+For my demonstration video I used Postman instead of insomnia.
 
 ---
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
